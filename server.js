@@ -46,10 +46,10 @@ app.get("/scrape", function(req, res) {
       output.push($(this).find("h3").text());
 
       // Add the text and href of every link, and save them as properties of the result object
-      result.title = $(this)
+      result.link = $(this)
         .children("a")
         .attr("href");
-      result.link = $(this)
+      result.title = $(this)
         .find("h3").text();
 
       //
@@ -57,6 +57,7 @@ app.get("/scrape", function(req, res) {
       db.Article.create(result)
         .then(function(dbArticle) {
           // View the added result in the console
+
           console.log(dbArticle);
         })
         .catch(function(err) {
@@ -72,7 +73,7 @@ app.get("/scrape", function(req, res) {
 
   app.get("/articles", function(req, res) {
   // Grab every document in the Articles collection
-  db.Article.find({})
+  db.Article.find({}).sort([['_id', -1]]).limit(12)
     .then(function(dbArticle) {
       // If we were able to successfully find Articles, send them back to the client
       res.json(dbArticle);
