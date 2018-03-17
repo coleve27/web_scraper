@@ -9,14 +9,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jasonboru/mongo-scraper.git"
+    "url": "git+https://github.com/coleve27/web_scraper"
   },
-  "author": "Jason O'Brien",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jasonboru/mongo-scraper/issues"
-  },
-  "homepage": "https://github.com/jasonboru/mongo-scraper#readme",
+  "homepage": "https://github.com/coleve27/web_scraper#readme",
   "keywords": [],
   "dependencies": {
     "body-parser": "^1.18.2",
