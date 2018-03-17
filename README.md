@@ -8,7 +8,7 @@
 
 In this assignment, I was asked to create a web app that lets users leave comments on the latest news. But I did not actually write any articles; instead, I used Mongoose and Cheerio packages along with MongoDB to scrape news from another site and store it in the apps database.
 
-Check out the app running on heroku here: https://powerful-bayou-77610.herokuapp.com/
+Check out the app running on heroku here: https://rocky-basin-48568.herokuapp.com/
 
 ## Installation Instructions
 
@@ -21,39 +21,26 @@ Check out the app running on heroku here: https://powerful-bayou-77610.herokuapp
 ---
 ## Screenshots
 
-1. Initially the page may not have any articles or posssibly old articles
+1. Click the 'Scrape New Artilcles!' Button up top to pull in new articles from the New York Times.
 
-![Screenshot-01](/public/assets/img/screenshot1.jpg)
+![Screenshot-02](/public/assets/img/navbar_screenshot.png)
 
-Click the 'Scrape New Artilcles!' Button up top to pull in new articles from the New York Times.
-
-![Screenshot-02](/public/assets/img/screenshot2.jpg)
-![Screenshot-03](/public/assets/img/screenshot3.jpg)
 
 2. Users can click the link under Each Article title to go to the full article on the NYT website. For their favorite articles they can click save article and it will move the article from the home page the the saved article page.
 
-![Screenshot-04](/public/assets/img/screenshot4.jpg)
-![Screenshot-05](/public/assets/img/screenshot5.jpg)
+![Screenshot-04](/public/assets/img/article_screenshot.png)
+
 
 3. A user can view notes and add their own notes by click the view/add notes button.
 
-![Screenshot-06](/public/assets/img/screenshot6.jpg)
-
 ... A modal pops up showing previous notes and allows the user to submit their own.
 
-![Screenshot-07](/public/assets/img/screenshot7.jpg)
+![Screenshot-07](/public/assets/img/new_note.png)
 
 4. Notes can be deleted by clicking the red x to the right of each note.
 
-![Screenshot-08](/public/assets/img/screenshot8.jpg)
-![Screenshot-09](/public/assets/img/screenshot9.jpg)
 
 5. Lastly articles stored in saved articles can be removed and sent back to the home page by clicking the 'Remove from Saved' button.
-
-![Screenshot-10](/public/assets/img/screenshot10.jpg)
-![Screenshot-11](/public/assets/img/screenshot11.jpg)
-
-
 
 
 - - -
@@ -64,7 +51,3 @@ Click the 'Scrape New Artilcles!' Button up top to pull in new articles from the
   * Have a login so users can only delete their notes and not other users...also giving the notes a user signature.
 
 - - -
-
-## Copyright
-
-Jason O'Brien (C) 2017.
