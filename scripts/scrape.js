@@ -1,47 +1,32 @@
-//setting up function to scrape website and add to array//
-module.exports = function scraper() {
+// Our scraping tools
+var request = require("request");
+var cheerio = require("cheerio");
+
+//scrape articles from the New YorK Times
+var scrape = function(callback) {
+
+  var articlesArr = [];
+
+  request("https://www.si.edu/", function(error, response, html) {
+
+      var $ = cheerio.load(html);
 
 
+      $(".b-text-wrapper").each(function(i, element) {
 
-app.get("/scrape", function(req, res) {
-  // First, we grab the body of the html with request
-  axios.get("https://www.si.edu/").then(function(response) {
-    // Then, we load that into cheerio and save it to $ for a shorthand selector
-    var $ = cheerio.load(response.data);
-    console.log(response.data);
-    // TODO: Now, we grab every h2 <h3> within an article tag, and do the following:
-    // $("article h2").each(function(i, element) {
-    //   // Save an empty result object
-    //   var result = {};
-    //
-    //   // Add the text and href of every link, and save them as properties of the result object
-    //   result.title = $(this)
-    //     .children("a")
-    //     .text();
-    //   result.link = $(this)
-    //     .children("a")
-    //     .attr("href");
-    //
-    //   todo: Create a new Article using the `result` object built from scraping
-    //   db.Article.create(result)
-    //     .then(function(dbArticle) {
-    //       // View the added result in the console
-    //       console.log(dbArticle);
-    //     })
-    //     .catch(function(err) {
-    //       // If an error occurred, send it to the client
-    //       return res.json(err);
-    //     });
-    });
+          var result = {};
 
-    // If we were able to successfully scrape and save an Article, send a message to the client
-    res.send("Scrape Complete");
+          // Add the text and href of every link, and save them as properties of the result object
+          result.title = $(this).find("h3").text();
+    			result.link = $(this).children("a").attr("href");
+
+          if (result.title !== "" && result.link !== "") {
+              articlesArr.push(result);
+          }
+      });
+      callback(articlesArr);
   });
 
+};
 
-}
-
-
-
-
-  // TODO: export Scrape
+module.exports = scrape;
