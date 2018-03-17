@@ -21,18 +21,18 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(process.cwd() + "/public"));
 
 // Database configuration with mongoose
-// var databaseUri = "mongodb://localhost/mongoosearticles";
-//
-// if (process.env.MONGODB_URI) {
-//   mongoose.connect(process.env.MONGODB_URI);
-// } else {
-//   mongoose.connect(databaseUri);
-// }
-//
-// var db = mongoose.connection;
+var databaseUri = "mongodb://localhost/mongoHeadlines";
 
-mongoose.connect("mongodb://localhost/mongoHeadlines");
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI);
+} else {
+  mongoose.connect(databaseUri);
+}
+
 var db = mongoose.connection;
+
+// mongoose.connect("mongodb://localhost/mongoHeadlines");
+// var db = mongoose.connection;
 
 db.on("error", function(error) {
   console.log("Mongoose Error: ", error);
@@ -56,6 +56,10 @@ require("./config/routes")(router);
 app.use(router);
 
 //set port
-app.listen(3000, function() {
-	console.log("App running on port 3000!");
+var port = process.env.PORT || 3000;
+
+//setup listener
+app.listen(port, function() {
+  console.log("app running on port " + port);
+
 });
